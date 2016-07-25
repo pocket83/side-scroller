@@ -8,24 +8,19 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-
 public class GameState extends BasicGameState{
 	
 	private Mob blooper;
-	
-	
 
 	@Override
 	public void init(GameContainer container, StateBasedGame arg1) throws SlickException {
 		blooper = new Mob();
-
 	}
 	
 	@Override
 	public void update(GameContainer container, StateBasedGame arg1, int delta) throws SlickException {
 		Input input = container.getInput();
-		
-		
+
 		if(input.isKeyDown(Input.KEY_RIGHT)) {			//RIGHT
 			if(input.isKeyDown(Input.KEY_UP)){			//RIGHT + UP
 				blooper.direction = 2;
@@ -64,7 +59,6 @@ public class GameState extends BasicGameState{
 		}
 		
 		blooper.update(delta);
-		
 	}
 
 	@Override
@@ -72,11 +66,9 @@ public class GameState extends BasicGameState{
 		blooper.draw();
 	}
 
-
 	@Override
 	public int getID() {
 		
 		return 0;
 	}
-
 }

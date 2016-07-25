@@ -19,7 +19,6 @@ public class Game extends StateBasedGame {
 		mainWindow.setAlwaysRender(true);
 		
 		mainWindow.start();
-		
 	}
 
 	@Override
@@ -27,7 +26,4 @@ public class Game extends StateBasedGame {
 		this.addState(new GameState());
 		
 	}
-	
-	
-
 }

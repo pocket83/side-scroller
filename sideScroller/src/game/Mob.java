@@ -4,8 +4,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 public class Mob {
-	
-	
+
 	private final int RIGHT 	= 1;
 	private final int RIGHTUP 	= 2;
 	private final int RIGHTDOWN = 3;
