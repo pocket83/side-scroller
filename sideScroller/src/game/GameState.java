@@ -21,44 +21,25 @@ public class GameState extends BasicGameState{
 	public void update(GameContainer container, StateBasedGame arg1, int delta) throws SlickException {
 		Input input = container.getInput();
 
-		if(input.isKeyDown(Input.KEY_RIGHT)) {			//RIGHT
-			if(input.isKeyDown(Input.KEY_UP)){			//RIGHT + UP
-				blooper.direction = 2;
-			} else if(input.isKeyDown(Input.KEY_DOWN)){	//RIGHT + DOWN
-				blooper.direction = 3;
-			}
-			else {
-				blooper.direction = 1;
-			}
-		} else if(input.isKeyDown(Input.KEY_LEFT)){		//LEFT
-			if(input.isKeyDown(Input.KEY_UP)){			//LEFT + UP
-				blooper.direction = 5;
-			} else if(input.isKeyDown(Input.KEY_DOWN)){ //LEFT + DOWN
-				blooper.direction = 6;
-			} else{
-				blooper.direction = 4;
-			}
-		} else if(input.isKeyDown(Input.KEY_UP)){		//UP
-			if(input.isKeyDown(Input.KEY_RIGHT)){		//UP + RIGHT
-				blooper.direction = 8;
-			} else if(input.isKeyDown(Input.KEY_LEFT)){ //UP + LEFT
-				blooper.direction = 9;
-			} else{
-				blooper.direction = 7;
-			}
-		} else if(input.isKeyDown(Input.KEY_DOWN)){		//DOWN
-			if(input.isKeyDown(Input.KEY_RIGHT)){		//DOWN + RIGHT
-				blooper.direction = 11;
-			} else if(input.isKeyDown(Input.KEY_LEFT)){ //DOWN + LEFT
-				blooper.direction = 12;
-			} else{
-				blooper.direction = 10;
-			}
-		} else{
-			blooper.direction = -1;
+		if(input.isKeyDown(Input.KEY_RIGHT)) {
+			blooper.xDirection = 1;						//RIGHT
+		} else if(input.isKeyDown(Input.KEY_LEFT)){
+			blooper.xDirection = -1;					//LEFT
+		} else {
+			blooper.xDirection = 0;						//IDLE
 		}
-		
-		blooper.update(delta);
+
+
+		if(input.isKeyDown(Input.KEY_UP)){
+			blooper.yDirection = 1;						//UP
+		} else if(input.isKeyDown(Input.KEY_DOWN)){
+			blooper.yDirection = -1;					//DOWN
+		} else {
+			blooper.yDirection = 0;						//IDLE
+		}
+
+		//blooper.update(delta);
+		blooper.move();
 	}
 
 	@Override
